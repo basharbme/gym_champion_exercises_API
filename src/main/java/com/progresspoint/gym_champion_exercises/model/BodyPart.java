@@ -1,14 +1,14 @@
 package com.progresspoint.gym_champion_exercises.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
+@EqualsAndHashCode(exclude = "exercises")
 public class BodyPart {
 
     @Id
@@ -16,4 +16,7 @@ public class BodyPart {
     private Long id;
 
     private String name;
+
+    @ManyToMany(mappedBy = "bodyParts")
+    private Set<Exercise> exercises;
 }
