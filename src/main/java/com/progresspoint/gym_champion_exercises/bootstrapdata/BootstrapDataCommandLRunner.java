@@ -10,9 +10,11 @@ import com.progresspoint.gym_champion_exercises.repository.BodyPartRepository;
 import com.progresspoint.gym_champion_exercises.repository.ExerciseRepository;
 import com.progresspoint.gym_champion_exercises.repository.MuscleRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class BootstrapDataCommandLRunner implements CommandLineRunner {
 
     private final BodyPartRepository bodyPartRepository;
@@ -38,6 +40,7 @@ public class BootstrapDataCommandLRunner implements CommandLineRunner {
         if(!armsBPOptional.isPresent()){
             throw new RuntimeException("Expected Body Part not in data base");
         }
+//        bodyPartRepository.save(armsBPOptional.get());
 
         Optional<BodyPart> foreArmsBPOptional = bodyPartRepository.findByName("Forearms");
         if(!foreArmsBPOptional.isPresent()){
@@ -96,6 +99,8 @@ public class BootstrapDataCommandLRunner implements CommandLineRunner {
         if(!bicepsLHMusclesOptional.isPresent()){
             throw new RuntimeException("No such muscle in data base");
         }
+        muscleRepository.save(bicepsLHMusclesOptional.get());
+
         Optional<Muscle> bicepsSHMusclesOptional = muscleRepository.findByName("Biceps. Short Head");
         if(!bicepsSHMusclesOptional.isPresent()){
             throw new RuntimeException("No such muscle in data base");
@@ -214,6 +219,7 @@ public class BootstrapDataCommandLRunner implements CommandLineRunner {
         dumbbellBicepsCurlStandingMuscleSet.add(bicepsLHMusclesOptional.get());
         dumbbellBicepsCurlStandingMuscleSet.add(bicepsSHMusclesOptional.get());
         dumbbellBicepsCurlStanding.setMuscles(dumbbellBicepsCurlStandingMuscleSet);
+        exerciseRepository.save(dumbbellBicepsCurlStanding);
 
 
         Exercise barbellCurl = new Exercise();
