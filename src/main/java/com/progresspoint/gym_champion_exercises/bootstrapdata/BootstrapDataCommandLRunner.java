@@ -9,36 +9,29 @@ import com.progresspoint.gym_champion_exercises.model.enums.PushPullcheme;
 import com.progresspoint.gym_champion_exercises.repository.BodyPartRepository;
 import com.progresspoint.gym_champion_exercises.repository.ExerciseRepository;
 import com.progresspoint.gym_champion_exercises.repository.MuscleRepository;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.CommandLineRunner;
 
 import java.util.*;
 
-@Component
-@Slf4j
-public class GCExerciseBootstrap implements ApplicationListener<ContextRefreshedEvent> {
+public class BootstrapDataCommandLRunner implements CommandLineRunner {
 
     private final BodyPartRepository bodyPartRepository;
     private final ExerciseRepository exerciseRepository;
     private final MuscleRepository muscleRepository;
 
-    public GCExerciseBootstrap(BodyPartRepository bodyPartRepository, ExerciseRepository exerciseRepository,
-            MuscleRepository muscleRepository) {
+    public BootstrapDataCommandLRunner(BodyPartRepository bodyPartRepository, ExerciseRepository exerciseRepository, MuscleRepository muscleRepository) {
         this.bodyPartRepository = bodyPartRepository;
         this.exerciseRepository = exerciseRepository;
         this.muscleRepository = muscleRepository;
     }
 
+
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        log.debug("Bootstraping project. DB data initialisation");
-        exerciseRepository.saveAll(getExercises());
+    public void run(String... args) throws Exception {
+        loadData();
     }
 
-    private List<Exercise> getExercises() {
-        List<Exercise> exercises = new ArrayList<>();
+    private void loadData() {
 
         // Body Parts init
         Optional<BodyPart> armsBPOptional = bodyPartRepository.findByName("Arms");
@@ -221,7 +214,7 @@ public class GCExerciseBootstrap implements ApplicationListener<ContextRefreshed
         dumbbellBicepsCurlStandingMuscleSet.add(bicepsLHMusclesOptional.get());
         dumbbellBicepsCurlStandingMuscleSet.add(bicepsSHMusclesOptional.get());
         dumbbellBicepsCurlStanding.setMuscles(dumbbellBicepsCurlStandingMuscleSet);
-        exercises.add(dumbbellBicepsCurlStanding);
+
 
         Exercise barbellCurl = new Exercise();
         barbellCurl.setName("Barbell Curl");
@@ -235,13 +228,9 @@ public class GCExerciseBootstrap implements ApplicationListener<ContextRefreshed
         barBellMuscleSet.add(bicepsLHMusclesOptional.get());
         barBellMuscleSet.add(bicepsSHMusclesOptional.get());
         barbellCurl.setMuscles(barBellMuscleSet);
-        exercises.add(barbellCurl);
 
 
 
-
-        return exercises;
     }
-
 
 }
