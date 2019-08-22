@@ -234,6 +234,7 @@ public class BootstrapDataCommandLRunner implements CommandLineRunner {
         barBellMuscleSet.add(bicepsLHMusclesOptional.get());
         barBellMuscleSet.add(bicepsSHMusclesOptional.get());
         barbellCurl.setMuscles(barBellMuscleSet);
+        exerciseRepository.save(barbellCurl);
 
 
 
