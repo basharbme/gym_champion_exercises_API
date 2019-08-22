@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -20,5 +21,5 @@ public class Muscle {
     private String name;
 
     @ManyToMany(mappedBy = "muscles")
-    private Set<Exercise> exercises;
+    private Set<Exercise> exercises = new HashSet<>();
 }

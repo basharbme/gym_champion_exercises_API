@@ -208,32 +208,32 @@ public class BootstrapDataCommandLRunner implements CommandLineRunner {
 
 
         Exercise dumbbellBicepsCurlStanding = new Exercise();
-        dumbbellBicepsCurlStanding.setName("Dumbbell BicepsCurl. Standing");
+        dumbbellBicepsCurlStanding.setName("Dumbbell_BicepsCurl_Standing");
         dumbbellBicepsCurlStanding.setEquipment(Equipment.DUMBBELL);
         dumbbellBicepsCurlStanding.setPushPullcheme(PushPullcheme.PULL);
         dumbbellBicepsCurlStanding.setBodyPosition(BodyPosition.STANDING);
-        Set<BodyPart> dumbbellBicepsCurlStandingBodyPartSet = new HashSet<>();
-        dumbbellBicepsCurlStandingBodyPartSet.add(armsBPOptional.get());
-        dumbbellBicepsCurlStanding.setBodyParts(dumbbellBicepsCurlStandingBodyPartSet);
-        Set<Muscle> dumbbellBicepsCurlStandingMuscleSet = new HashSet<>();
-        dumbbellBicepsCurlStandingMuscleSet.add(bicepsLHMusclesOptional.get());
-        dumbbellBicepsCurlStandingMuscleSet.add(bicepsSHMusclesOptional.get());
-        dumbbellBicepsCurlStanding.setMuscles(dumbbellBicepsCurlStandingMuscleSet);
+//        Set<BodyPart> dumbbellBicepsCurlStandingBodyPartSet = new HashSet<>();
+//        dumbbellBicepsCurlStandingBodyPartSet.add(armsBPOptional.get());
+//        dumbbellBicepsCurlStanding.setBodyParts(dumbbellBicepsCurlStandingBodyPartSet);
+//        Set<Muscle> dumbbellBicepsCurlStandingMuscleSet = new HashSet<>();
+//        dumbbellBicepsCurlStandingMuscleSet.add(bicepsLHMusclesOptional.get());
+//        dumbbellBicepsCurlStandingMuscleSet.add(bicepsSHMusclesOptional.get());
+//        dumbbellBicepsCurlStanding.setMuscles(dumbbellBicepsCurlStandingMuscleSet);
         exerciseRepository.save(dumbbellBicepsCurlStanding);
 
 
         Exercise barbellCurl = new Exercise();
-        barbellCurl.setName("Barbell Curl");
+        barbellCurl.setName("Barbell_Curl");
         barbellCurl.setEquipment(Equipment.BARBELL);
         barbellCurl.setPushPullcheme(PushPullcheme.PULL);
         barbellCurl.setBodyPosition(BodyPosition.STANDING);
-        Set<BodyPart> barBellBodyPartsSet = new HashSet<>();
-        barBellBodyPartsSet.add(armsBPOptional.get());
-        barbellCurl.setBodyParts(barBellBodyPartsSet);
-        Set<Muscle> barBellMuscleSet = new HashSet<>();
-        barBellMuscleSet.add(bicepsLHMusclesOptional.get());
-        barBellMuscleSet.add(bicepsSHMusclesOptional.get());
-        barbellCurl.setMuscles(barBellMuscleSet);
+//        Set<BodyPart> barBellBodyPartsSet = new HashSet<>();
+//        barBellBodyPartsSet.add(armsBPOptional.get());
+//        barbellCurl.setBodyParts(barBellBodyPartsSet);
+//        Set<Muscle> barBellMuscleSet = new HashSet<>();
+//        barBellMuscleSet.add(bicepsLHMusclesOptional.get());
+//        barBellMuscleSet.add(bicepsSHMusclesOptional.get());
+//        barbellCurl.setMuscles(barBellMuscleSet);
         exerciseRepository.save(barbellCurl);
 
 
