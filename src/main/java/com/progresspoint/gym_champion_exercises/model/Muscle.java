@@ -9,10 +9,12 @@ import java.util.Set;
 @Data
 @Entity
 @EqualsAndHashCode(exclude = "exercises")
+@Table(name = "muscle")
 public class Muscle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "muscle_id")
     private Long id;
 
     private String name;

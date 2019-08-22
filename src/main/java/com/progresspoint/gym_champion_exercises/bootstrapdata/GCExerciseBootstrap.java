@@ -16,8 +16,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-@Component
-@Slf4j
+/////////////////////////////////////////////////////////////////////
+// Bootstrap class - not used. To be deleted before deployment
+////////////////////////////////////////////////////////////////////
+//@Component
+//@Slf4j
 public class GCExerciseBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private final BodyPartRepository bodyPartRepository;
@@ -33,7 +36,7 @@ public class GCExerciseBootstrap implements ApplicationListener<ContextRefreshed
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        log.debug("Bootstraping project. DB data initialisation");
+
         exerciseRepository.saveAll(getExercises());
     }
 
