@@ -50,7 +50,6 @@ public class Exercise {
     private Set<Muscle> muscles = new HashSet<>();
 
 
-
     @Lob
     private String description;
 

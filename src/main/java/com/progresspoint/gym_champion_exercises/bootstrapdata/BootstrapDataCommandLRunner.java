@@ -91,8 +91,7 @@ public class BootstrapDataCommandLRunner implements CommandLineRunner {
         if(!calvesBPOptional.isPresent()){
             throw new RuntimeException("Expected Body Part not in data base");
         }
-
-
+        
         // Muscles init
 
         Optional<Muscle> bicepsLHMusclesOptional = muscleRepository.findByName("Biceps. Long Head");
@@ -205,7 +204,6 @@ public class BootstrapDataCommandLRunner implements CommandLineRunner {
         if(!calvesMusclesOptional.isPresent()){
             throw new RuntimeException("No such muscle in data base");
         }
-
 
         Exercise dumbbellBicepsCurlStanding = new Exercise();
         dumbbellBicepsCurlStanding.setName("Dumbbell_BicepsCurl_Standing");
