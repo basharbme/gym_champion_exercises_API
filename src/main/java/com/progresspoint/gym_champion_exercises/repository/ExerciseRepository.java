@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface ExerciseRepository extends CrudRepository<Exercise, Long> {
 
-    Optional<Exercise> findByName(String name);
+    Exercise findByName(String name);
 }
